@@ -1,91 +1,7 @@
 {
  "v": 1,
- "at": "2026-11-07T06:28:48.000Z",
+ "at": "2026-11-07T06:44:56.839Z",
  "results": {
-  "kurupam-2": {
-   "status": "counting",
-   "ours": 14,
-   "rivals": [
-    {
-     "name": "",
-     "party": "YSRCP",
-     "votes": 1
-    }
-   ],
-   "nota": null,
-   "rejected": 2,
-   "note": "Postal"
-  },
-  "neelakantapuram-1": {
-   "status": "counting",
-   "ours": 4,
-   "rivals": [
-    {
-     "name": "",
-     "party": "YSRCP",
-     "votes": 2
-    }
-   ],
-   "nota": null,
-   "rejected": 5,
-   "note": "Postal"
-  },
-  "vobhangi": {
-   "status": "counting",
-   "ours": 11,
-   "rivals": [
-    {
-     "name": "",
-     "party": "YSRCP",
-     "votes": 1
-    }
-   ],
-   "nota": null,
-   "rejected": 1,
-   "note": "Postal"
-  },
-  "neelakantapuram-2": {
-   "status": "counting",
-   "ours": 5,
-   "rivals": [
-    {
-     "name": "",
-     "party": "YSRCP",
-     "votes": 2
-    }
-   ],
-   "nota": null,
-   "rejected": 3,
-   "note": "Postal. Sheet total says 11 but 5+2+3=10"
-  },
-  "kurupam-1": {
-   "status": "counting",
-   "ours": 5,
-   "rivals": [
-    {
-     "name": "",
-     "party": "YSRCP",
-     "votes": 4
-    }
-   ],
-   "nota": null,
-   "rejected": null,
-   "note": "Postal"
-  },
-  "tittiri": {
-   "status": "counting",
-   "ours": 3,
-   "rivals": [
-    {
-     "name": "",
-     "party": "YSRCP",
-     "votes": 5
-    }
-   ],
-   "nota": null,
-   "rejected": null,
-   "note": "Postal"
-  },
   "zptc": {
    "status": "counting",
    "ours": 70,
@@ -108,11 +24,13 @@
    ],
    "nota": null,
    "rejected": null,
-   "note": "Postal"
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T06:18:28.315Z"
   },
-  "uridi": {
+  "kurupam-1": {
    "status": "counting",
-   "ours": 16,
+   "ours": 5,
    "rivals": [
     {
      "name": "",
@@ -121,8 +39,26 @@
     }
    ],
    "nota": null,
-   "rejected": 1,
-   "note": "Postal"
+   "rejected": null,
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:35:00.000Z"
+  },
+  "kurupam-2": {
+   "status": "counting",
+   "ours": 14,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 1
+    }
+   ],
+   "nota": null,
+   "rejected": 2,
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:35:00.000Z"
   },
   "kurupam-3": {
    "status": "counting",
@@ -136,11 +72,13 @@
    ],
    "nota": null,
    "rejected": 1,
-   "note": "Postal"
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:35:00.000Z"
   },
-  "podi": {
+  "neelakantapuram-1": {
    "status": "counting",
-   "ours": 15,
+   "ours": 4,
    "rivals": [
     {
      "name": "",
@@ -150,7 +88,41 @@
    ],
    "nota": null,
    "rejected": 5,
-   "note": "Postal"
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:35:00.000Z"
+  },
+  "neelakantapuram-2": {
+   "status": "counting",
+   "ours": 5,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 2
+    }
+   ],
+   "nota": null,
+   "rejected": 3,
+   "note": "Postal. Sheet total says 11 but 5+2+3=10",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:35:00.000Z"
+  },
+  "kichhada": {
+   "status": "counting",
+   "ours": 3,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 11
+    }
+   ],
+   "nota": null,
+   "rejected": 3,
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:35:00.000Z"
   },
   "mondenkhallu": {
    "status": "counting",
@@ -169,7 +141,194 @@
    ],
    "nota": null,
    "rejected": 2,
-   "note": "Postal. Sheet had a 4th column with 1 (entered as Other)"
+   "note": "Postal. Sheet had a 4th column with 1 (entered as Other)",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:35:00.000Z"
+  },
+  "valasaballeru": {
+   "status": "counting",
+   "ours": 20,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 3
+    },
+    {
+     "name": "Rahulu",
+     "party": "IND",
+     "votes": 3
+    }
+   ],
+   "nota": null,
+   "rejected": 1,
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:35:00.000Z"
+  },
+  "vobhangi": {
+   "status": "counting",
+   "ours": 11,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 1
+    }
+   ],
+   "nota": null,
+   "rejected": 1,
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:35:00.000Z"
+  },
+  "podi": {
+   "status": "counting",
+   "ours": 15,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 2
+    }
+   ],
+   "nota": null,
+   "rejected": 5,
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:35:00.000Z"
+  },
+  "uridi": {
+   "status": "counting",
+   "ours": 16,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 4
+    }
+   ],
+   "nota": null,
+   "rejected": 1,
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:35:00.000Z"
+  },
+  "yegulavada": {
+   "status": "counting",
+   "ours": 22,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 9
+    }
+   ],
+   "nota": null,
+   "rejected": 9,
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:35:00.000Z"
+  },
+  "tittiri": {
+   "status": "counting",
+   "ours": 3,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 5
+    }
+   ],
+   "nota": null,
+   "rejected": null,
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:35:00.000Z"
+  },
+  "sivada": {
+   "status": "counting",
+   "ours": 13,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 6
+    }
+   ],
+   "nota": null,
+   "rejected": 2,
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:35:00.000Z"
+  },
+  "zptc-seethampeta": {
+   "status": "counting",
+   "ours": 92,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 114
+    }
+   ],
+   "nota": 11,
+   "rejected": null,
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:18:25.188Z",
+   "cand": {
+    "name": "Imaraka Pawan Kumar",
+    "party": "JSP",
+    "seat": "Seethampeta ZPTC"
+   }
+  },
+  "zptc-komarada": {
+   "status": "counting",
+   "ours": 110,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 59
+    }
+   ],
+   "nota": null,
+   "rejected": null,
+   "note": "Postal. Rejected votes 2",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:12:21.651Z",
+   "cand": {
+    "name": "Tejeswari Biddika",
+    "party": "TDP",
+    "seat": "Komarada ZPTC"
+   }
+  },
+  "zptc-jiyyammavalasa": {
+   "status": "counting",
+   "ours": 141,
+   "rivals": [
+    {
+     "name": "",
+     "party": "",
+     "votes": 51
+    },
+    {
+     "name": "",
+     "party": "JSP",
+     "votes": 2
+    }
+   ],
+   "nota": null,
+   "rejected": null,
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T04:58:42.393Z",
+   "cand": {
+    "name": "Datthi Kameswari",
+    "party": "TDP",
+    "seat": "Jiyyammavalasa ZPTC"
+   }
   },
   "zptc-garugubilli": {
    "status": "counting",
@@ -182,7 +341,10 @@
     }
    ],
    "nota": 3,
+   "rejected": null,
    "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T04:59:00.627Z",
    "cand": {
     "name": "Venkatamma Karada",
     "party": "TDP",
@@ -212,53 +374,60 @@
    "nota": 3,
    "rejected": 9,
    "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T06:25:02.129Z",
    "cand": {
     "name": "Sri Dwarapureddy Srinivas",
     "party": "BJP",
     "seat": "Parvathipuram ZPTC"
    }
   },
-  "zptc-jiyyammavalasa": {
+  "zptc-seethanagaram": {
    "status": "counting",
-   "ours": 141,
-   "rivals": [
-    {
-     "name": "",
-     "party": "",
-     "votes": 51
-    },
-    {
-     "name": "",
-     "party": "JSP",
-     "votes": 2
-    }
-   ],
-   "nota": null,
-   "note": "Postal",
-   "cand": {
-    "name": "Datthi Kameswari",
-    "party": "TDP",
-    "seat": "Jiyyammavalasa ZPTC"
-   }
-  },
-  "valasaballeru": {
-   "status": "counting",
-   "ours": 20,
+   "ours": 138,
    "rivals": [
     {
      "name": "",
      "party": "YSRCP",
-     "votes": 3
+     "votes": 98
     },
     {
-     "name": "Rahulu",
-     "party": "IND",
-     "votes": 3
+     "name": "",
+     "party": "INC",
+     "votes": 2
     }
    ],
    "nota": null,
-   "rejected": 1,
-   "note": "Postal"
+   "rejected": 17,
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T06:35:10.988Z",
+   "cand": {
+    "name": "Kakkanalapalli Anuradha",
+    "party": "TDP",
+    "seat": "Seethanagaram ZPTC"
+   }
+  },
+  "zptc-balijipeta": {
+   "status": "counting",
+   "ours": 132,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 87
+    }
+   ],
+   "nota": null,
+   "rejected": 28,
+   "note": "Postal",
+   "sample": false,
+   "updatedAt": "2026-11-07T06:42:42.901Z",
+   "cand": {
+    "name": "Paluru Chandini (W/O Paler Baburao)",
+    "party": "JSP",
+    "seat": "Balijipeta ZPTC"
+   }
   },
   "zptc-salur": {
    "status": "counting",
@@ -278,88 +447,12 @@
    "nota": 1,
    "rejected": 0,
    "note": "",
+   "sample": false,
+   "updatedAt": "2026-11-07T05:27:49.186Z",
    "cand": {
     "name": "Ramadaevi Appi Konda",
     "party": "TDP",
     "seat": "Salur ZPTC"
-   }
-  },
-  "kichhada": {
-   "status": "counting",
-   "ours": 3,
-   "rivals": [
-    {
-     "name": "",
-     "party": "YSRCP",
-     "votes": 11
-    }
-   ],
-   "nota": null,
-   "rejected": 3,
-   "note": "Postal"
-  },
-  "zptc-komarada": {
-   "status": "counting",
-   "ours": 110,
-   "rivals": [
-    {
-     "name": "",
-     "party": "YSRCP",
-     "votes": 59
-    }
-   ],
-   "nota": null,
-   "note": "Postal. Rejected votes 2",
-   "cand": {
-    "name": "Tejeswari Biddika",
-    "party": "TDP",
-    "seat": "Komarada ZPTC"
-   }
-  },
-  "yegulavada": {
-   "status": "counting",
-   "ours": 22,
-   "rivals": [
-    {
-     "name": "",
-     "party": "YSRCP",
-     "votes": 9
-    }
-   ],
-   "nota": null,
-   "rejected": 9,
-   "note": "Postal"
-  },
-  "sivada": {
-   "status": "counting",
-   "ours": 13,
-   "rivals": [
-    {
-     "name": "",
-     "party": "YSRCP",
-     "votes": 6
-    }
-   ],
-   "nota": null,
-   "rejected": 2,
-   "note": "Postal"
-  },
-  "zptc-seethampeta": {
-   "status": "counting",
-   "ours": 92,
-   "rivals": [
-    {
-     "name": "",
-     "party": "YSRCP",
-     "votes": 114
-    }
-   ],
-   "nota": 11,
-   "note": "Postal",
-   "cand": {
-    "name": "Imaraka Pawan Kumar",
-    "party": "JSP",
-    "seat": "Seethampeta ZPTC"
    }
   }
  }
