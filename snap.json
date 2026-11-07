@@ -1,6 +1,6 @@
 {
  "v": 1,
- "at": "2026-11-07T06:15:14.000Z",
+ "at": "2026-11-07T06:28:48.000Z",
  "results": {
   "kurupam-2": {
    "status": "counting",
@@ -88,8 +88,24 @@
   },
   "zptc": {
    "status": "counting",
-   "ours": 0,
-   "rivals": [],
+   "ours": 70,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 20
+    },
+    {
+     "name": "",
+     "party": "INC",
+     "votes": 1
+    },
+    {
+     "name": "",
+     "party": "IND",
+     "votes": 9
+    }
+   ],
    "nota": null,
    "rejected": null,
    "note": "Postal"
@@ -171,6 +187,35 @@
     "name": "Venkatamma Karada",
     "party": "TDP",
     "seat": "Garugubilli ZPTC"
+   }
+  },
+  "zptc-parvathipuram": {
+   "status": "counting",
+   "ours": 143,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 106
+    },
+    {
+     "name": "",
+     "party": "INC",
+     "votes": 9
+    },
+    {
+     "name": "",
+     "party": "IND",
+     "votes": 3
+    }
+   ],
+   "nota": 3,
+   "rejected": 9,
+   "note": "Postal",
+   "cand": {
+    "name": "Sri Dwarapureddy Srinivas",
+    "party": "BJP",
+    "seat": "Parvathipuram ZPTC"
    }
   },
   "zptc-jiyyammavalasa": {
