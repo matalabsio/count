@@ -244,6 +244,12 @@ textarea.inp { font-family: ui-monospace, Menlo, Consolas, monospace; font-size:
 .top .strip { display: block; padding-block: 6px 0; font-size: 11.5px; font-weight: 700; letter-spacing: .04em; text-align: right; }
 .top .strip a { color: var(--head-ink); opacity: .7; text-decoration: none; }
 .top .strip a:hover { opacity: 1; }
+.ptbar { display: flex; height: 12px; border-radius: 99px; overflow: hidden; gap: 2px; margin: 0 0 8px; }
+.ptbar i { display: block; min-width: 4px; }
+.tile span.party { font-size: 11.5px; }
+.tile .p-TDP { color: var(--yellow-ink); } .tile .p-JSP, .tile .p-YSRCP { color: #fff; } .tile .p-BJP { color: #1d1000; } .tile .p-INC { color: #00212e; }
+.tile .p-NDA { color: var(--head-ink); } .tile .p-Rej, .tile .p-Nota, .tile .p-All { color: var(--muted); } .tile .p-Other { color: var(--idle); }
+.p-NDA { background: var(--head); color: var(--head-ink); } .p-Rej, .p-Nota, .p-All { background: var(--soft); color: var(--muted); } .p-Other { background: var(--idle-soft); color: var(--idle); }
 .credit { margin: 28px 0 0; text-align: center; font-size: 13px; font-weight: 600; }
 .credit a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 1px; }
 .credit a:hover { color: var(--ink); }
@@ -331,11 +337,16 @@ const PHOTOS = {"kichhada": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
   ROSTER[0].mandal = 'Kurupam'; ROSTER[0].cons = 'Kurupam';
   const CONS = ['Palakonda', 'Kurupam', 'Parvathipuram', 'Salur'];
   const SHOW = ['Kurupam', 'Palakonda', 'Parvathipuram', 'Salur'];
+  // NDA ZPTC candidates (official NDA list). Seats can still be edited in the Counter.
+  const NDA_ZP = { bhamini: ['Nimmala Neelima', 'JSP'], palakonda: ['Venkatarao Rakoti', 'TDP'], seethampeta: ['Imaraka Pawan Kumar', 'JSP'], veeraghattam: ['Udayana Udaya Bhaskar', 'JSP'],
+    garugubilli: ['Venkatamma Karada', 'TDP'], gummalakshmipuram: ['Palaka Kranthi Kumar', 'JSP'], jiyyammavalasa: ['Datthi Kameswari', 'TDP'], komarada: ['Tejeswari Biddika', 'TDP'],
+    balijipeta: ['Paluru Chandini (W/O Paler Baburao)', 'JSP'], parvathipuram: ['Sri Dwarapureddy Srinivas', 'BJP'], seethanagaram: ['Kakkanalapalli Anuradha', 'TDP'],
+    makkuva: ['Sidarapu Sitamma', 'TDP'], pachipenta: ['Sowjanya Matala', 'TDP'], salur: ['Ramadaevi Appi Konda', 'TDP'] };
   [['palakonda', 'Palakonda', 0], ['seethampeta', 'Seethampeta', 0], ['veeraghattam', 'Veeraghattam', 0], ['bhamini', 'Bhamini', 0],
    ['komarada', 'Komarada', 1], ['gummalakshmipuram', 'Gummalakshmipuram', 1], ['jiyyammavalasa', 'Jiyyammavalasa', 1], ['garugubilli', 'Garugubilli', 1],
    ['parvathipuram', 'Parvathipuram', 2], ['seethanagaram', 'Seethanagaram', 2], ['balijipeta', 'Balijipeta', 2],
    ['salur', 'Salur', 3], ['pachipenta', 'Pachipenta', 3], ['makkuva', 'Makkuva', 3]]
-    .forEach(([k, m, c]) => ROSTER.push({ id: 'zptc-' + k, kind: 'ZPTC', seat: m + ' ZPTC', mandal: m, cons: CONS[c], name: '', te: '', party: 'TDP', no: null, editable: true }));
+    .forEach(([k, m, c]) => { const n = NDA_ZP[k]; ROSTER.push({ id: 'zptc-' + k, kind: 'ZPTC', seat: m + ' ZPTC', mandal: m, cons: CONS[c], name: n[0], te: '', party: n[1], no: null, editable: true }); });
   const MN = [['Palakonda', 12, 0], ['Seethampeta', 16, 0], ['Veeraghattam', 19, 0], ['Bhamini', 13, 0], ['Kurupam', 14, 1], ['Komarada', 15, 1], ['Gummalakshmipuram', 14, 1], ['Jiyyammavalasa', 15, 1], ['Garugubilli', 13, 1], ['Parvathipuram', 17, 2], ['Seethanagaram', 17, 2], ['Balijipeta', 17, 2], ['Salur', 16, 3], ['Pachipenta', 14, 3], ['Makkuva', 14, 3]];
   KUR.forEach((s) => { if (s.kind === 'MPTC') { s.mandal = 'Kurupam'; s.cons = 'Kurupam'; } });
   // Seat names for the other 14 mandals are not published yet: numbered placeholders that can be renamed from the Counter.
@@ -386,7 +397,7 @@ const PHOTOS = {"kichhada": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
     if (status === 'pending') key = 'pending';
     else if (status === 'declared') key = lead > 0 ? 'won' : lead < 0 ? 'lost' : 'tied';
     else key = lead > 0 ? 'winning' : lead < 0 ? 'trailing' : (ours > 0 ? 'tied' : 'counting');
-    return { status, key, ours, top, rv, lead, others, total: ours + others + num(r && r.nota), rivals, sample: !!(r && r.sample) };
+    return { status, key, ours, top, rv, lead, others, total: ours + others + num(r && r.nota), rivals, rejected: r && r.rejected != null ? num(r.rejected) : null, sample: !!(r && r.sample) };
   }
   const marginText = (d) => d.key === 'pending' ? 'Counting not started' : d.key === 'counting' ? 'No votes entered yet' :
     d.lead === 0 ? 'Level on ' + fmt(d.ours) : (d.lead > 0 ? 'Ahead by ' : 'Behind by ') + fmt(Math.abs(d.lead));
@@ -423,7 +434,7 @@ const PHOTOS = {"kichhada": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
           h('div', { class: d.lead > 0 ? 'lead' : '' }, h('small', { text: 'Ours' }), h('b', { text: fmt(d.ours) })),
           h('div', { class: d.lead < 0 ? 'lead' : '' }, h('small', { text: rivalLabel(d), title: rivalLabel(d) }), h('b', { text: fmt(d.rv) }))),
         h('div', { class: 'bar', role: 'img', 'aria-label': 'Our share of votes counted ' + Math.round(share) + ' percent' }, h('i', { style: 'width:' + share + '%' })),
-        h('div', { class: 'margin' }, h('span', { text: marginText(d) }), h('span', { text: fmt(d.total) + ' counted' }))
+        h('div', { class: 'margin' }, h('span', { text: marginText(d) }), h('span', { text: fmt(d.total) + ' counted' + (d.rejected ? ' · ' + fmt(d.rejected) + ' rejected' : '') }))
       ] : h('div', { class: 'idle', text: marginText(d) }));
   }
   function renderViewer() {
@@ -440,12 +451,35 @@ const PHOTOS = {"kichhada": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
     root.append(h('h2', { class: 'cons', text: 'Kurupam MPTCs · ' + MPTC.length + ' NDA candidates' }),
       h('div', { class: 'tally' }, tiles.map(([k, label, ks]) => h('div', { class: 'tile k-' + k }, h('b', { text: count(ks) }), h('span', { text: label })))),
       h('div', { class: 'segs', 'aria-hidden': 'true' }, [...MPTC].sort((a, b) => ORDER.indexOf(D[a.id].key) - ORDER.indexOf(D[b.id].key)).map((s) => h('i', { class: 'k-' + D[s.id].key }))));
+    partyTally(root);
     const groups = { all: MPTC, lead: MPTC.filter((s) => ['won', 'winning'].includes(D[s.id].key)), trail: MPTC.filter((s) => ['lost', 'trailing'].includes(D[s.id].key)), wait: MPTC.filter((s) => ['pending', 'counting', 'tied'].includes(D[s.id].key)) };
     const chips = [['all', 'All'], ['lead', 'Winning'], ['trail', 'Trailing'], ['wait', 'Pending']];
     root.append(h('div', { class: 'filters', role: 'group', 'aria-label': 'Filter seats' }, chips.map(([k, label]) =>
       h('button', { type: 'button', 'aria-pressed': String(F.f === k), onclick: () => { F.f = k; renderViewer(); } }, label, h('small', { text: groups[k].length })))));
     const list = groups[F.f];
     root.append(list.length ? h('ul', { class: 'grid' }, list.map((s) => mptcCard(s, D[s.id]))) : h('div', { class: 'panel empty', text: 'No seats in this group right now.' }));
+  }
+  // ---- Kurupam MPTCs: votes counted so far, by party ----
+  const PCOL = { TDP: 'var(--tdp)', JSP: 'var(--jsp)', BJP: 'var(--bjp)', YSRCP: '#1f5fbf', INC: '#19a2d8', Other: 'var(--idle)' };
+  function partyTally(root) {
+    const rows = MPTC.map((s) => ({ s, r: results[s.id] })).filter((x) => x.r && x.r.status !== 'pending');
+    if (!rows.length) return;
+    const tot = {}; let rej = 0, nota = 0;
+    const add = (p, n) => { tot[p] = (tot[p] || 0) + n; };
+    rows.forEach(({ s, r }) => { add(s.party, num(r.ours)); (r.rivals || []).forEach((v) => add(PCOL[v.party] && v.party !== 'Other' ? v.party : 'Other', num(v.votes))); rej += num(r.rejected); nota += num(r.nota); });
+    const names = ['TDP', 'JSP', 'BJP', 'YSRCP', 'INC', 'Other'].filter((p) => tot[p] > 0);
+    const valid = names.reduce((a, p) => a + tot[p], 0), all = valid + rej + nota;
+    const notes = [...new Set(rows.map(({ r }) => (r.note || '').split('.')[0].trim()).filter(Boolean))];
+    const label = notes.length === 1 ? notes[0] + ' ballots' : 'Counted so far';
+    const nda = ['TDP', 'JSP', 'BJP'].reduce((a, p) => a + (tot[p] || 0), 0);
+    const pc = (n) => (valid ? (n / valid * 100).toFixed(1) : '0.0') + '%';
+    const tile = (p, n, sub, extra) => h('div', { class: 'tile', style: '--c:' + (PCOL[p] || 'var(--idle)') }, h('span', { class: 'party p-' + p, text: extra || p }), h('b', { text: fmt(n) }), h('small', { class: 'hint', style: 'margin:0', text: sub }));
+    root.append(h('h2', { class: 'cons', text: label + ' · votes by party · ' + rows.length + ' of ' + MPTC.length + ' seats' }),
+      h('div', { class: 'tally' },
+        tile('NDA', nda, pc(nda), 'NDA'), ...names.map((p) => tile(p, tot[p], pc(tot[p]))),
+        ...(rej ? [tile('Rej', rej, 'not counted', 'Rejected')] : []), ...(nota ? [tile('Nota', nota, 'NOTA', 'NOTA')] : []), tile('All', all, 'all ballots', 'Total')),
+      h('div', { class: 'ptbar', role: 'img', 'aria-label': 'Share of valid votes by party' }, names.map((p) => h('i', { style: 'flex:' + tot[p] + ';background:' + PCOL[p], title: p + ' ' + tot[p] }))),
+      h('p', { class: 'hint', text: 'Percentages are of valid votes (rejected and NOTA left out). NDA is TDP, JSP and BJP combined.' }));
   }
   const ORDER = ['won', 'winning', 'tied', 'counting', 'pending', 'trailing', 'lost'];
 
@@ -550,6 +584,7 @@ const PHOTOS = {"kichhada": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
     const host = $('#sheetHost'); host.replaceChildren();
     const readOnly = !canWrite;
     const ours = h('input', { class: 'inp num', id: 'f-ours', inputmode: 'numeric', autocomplete: 'off', value: r.ours ?? '', disabled: readOnly });
+    const rej = h('input', { class: 'inp', id: 'f-rej', inputmode: 'numeric', autocomplete: 'off', value: r.rejected ?? '', disabled: readOnly });
     const nota = h('input', { class: 'inp', id: 'f-nota', inputmode: 'numeric', autocomplete: 'off', value: r.nota ?? '', disabled: readOnly });
     const note = h('input', { class: 'inp', id: 'f-note', autocomplete: 'off', placeholder: 'e.g. Round 3, Table 2', value: r.note || '', disabled: readOnly });
     const cname = h('input', { class: 'inp', id: 'f-cname', autocomplete: 'off', placeholder: 'NDA candidate name', value: s.name || '', disabled: readOnly });
@@ -559,7 +594,7 @@ const PHOTOS = {"kichhada": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
     const preview = h('div', { class: 'preview' }); const checks = h('ul', { class: 'checks' }); const msg = h('div', { id: 'e-msg' });
     const seg = h('div', { class: 'seg', role: 'radiogroup', 'aria-label': 'Counting status' }, [['pending', 'Yet to count'], ['counting', 'Counting'], ['declared', 'Declared']].map(([v, l]) =>
       h('label', {}, h('input', { type: 'radio', name: 'st', value: v, checked: ed.status === v, disabled: readOnly, onchange: () => { ed.status = v; refresh(); } }), l)));
-    const draft = () => ({ status: ed.status, ours: num(ours.value), nota: nota.value === '' ? null : num(nota.value), note: note.value.trim(), rivals: ed.rivals.filter((x) => x.name.trim() || x.votes !== '').map((x) => ({ name: x.name.trim(), party: x.party, votes: num(x.votes) })) });
+    const draft = () => ({ status: ed.status, ours: num(ours.value), nota: nota.value === '' ? null : num(nota.value), rejected: rej.value === '' ? null : num(rej.value), note: note.value.trim(), rivals: ed.rivals.filter((x) => x.name.trim() || x.votes !== '').map((x) => ({ name: x.name.trim(), party: x.party, votes: num(x.votes) })) });
     function bump() { if (ed.status === 'pending' && (num(ours.value) > 0 || ed.rivals.some((x) => num(x.votes) > 0))) { ed.status = 'counting'; seg.querySelector('input[value="counting"]').checked = true; } }
     function refresh() {
       const d = draft(), v = derive(d);
@@ -579,7 +614,7 @@ const PHOTOS = {"kichhada": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
         h('input', { class: 'inp vt', inputmode: 'numeric', placeholder: 'Votes', 'aria-label': 'Rival ' + (i + 1) + ' votes', value: x.votes, disabled: readOnly, oninput: (e) => { x.votes = e.target.value; bump(); refresh(); } }),
         h('button', { type: 'button', class: 'x', 'aria-label': 'Remove rival ' + (i + 1), disabled: readOnly || ed.rivals.length === 1, onclick: () => { ed.rivals.splice(i, 1); drawRivals(); refresh(); }, text: '×' }))));
     }
-    ours.addEventListener('input', () => { bump(); refresh(); }); nota.addEventListener('input', refresh);
+    ours.addEventListener('input', () => { bump(); refresh(); }); nota.addEventListener('input', refresh); rej.addEventListener('input', refresh);
     drawRivals(); refresh();
     const close = () => { host.replaceChildren(); ed = null; document.removeEventListener('keydown', onKey); };
     const onKey = (e) => { if (e.key === 'Escape') close(); };
@@ -596,6 +631,7 @@ const PHOTOS = {"kichhada": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
         h('div', { class: 'field' }, h('span', { class: 'lbl', text: 'Rivals' }), rivalsBox,
           h('div', {}, h('button', { type: 'button', class: 'btn', disabled: readOnly, onclick: () => { ed.rivals.push({ name: '', party: '', votes: '' }); drawRivals(); }, text: '+ Add rival' }))),
         h('div', { class: 'field' }, h('label', { for: 'f-nota', text: 'NOTA (optional)' }), nota),
+        h('div', { class: 'field' }, h('label', { for: 'f-rej', text: 'Rejected votes (optional)' }), rej),
         h('div', { class: 'field' }, h('label', { for: 'f-note', text: 'Round or source note (optional)' }), note),
         preview, checks, msg,
         h('div', { class: 'btns', style: 'margin-top:0' },
@@ -617,7 +653,7 @@ const PHOTOS = {"kichhada": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
           btn.disabled = false; return;
         }
       }
-      const body = { status: d.status, ours: d.ours, rivals: d.rivals, nota: d.nota, note: d.note, sample: false, updatedAt: new Date().toISOString(), updatedBy: uid };
+      const body = { status: d.status, ours: d.ours, rivals: d.rivals, nota: d.nota, rejected: d.rejected, note: d.note, sample: false, updatedAt: new Date().toISOString(), updatedBy: uid };
       if (BY[id].editable) body.cand = ed.cand();
       await ref.set(body);
       const v = derive(body); await logAction(s.seat, 'saved · ' + LABEL[v.key] + (v.key === 'pending' ? '' : ' · ' + marginText(v)));
@@ -661,7 +697,7 @@ const PHOTOS = {"kichhada": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
     const out = {};
     for (const s of ROSTER) {
       const r = o.results[s.id]; if (!r || typeof r !== 'object') continue;
-      const x = { status: STAT.includes(r.status) ? r.status : 'pending', ours: num(r.ours), rivals: (Array.isArray(r.rivals) ? r.rivals : []).slice(0, 12).map((v) => ({ name: str(v && v.name), party: str(v && v.party, 12), votes: num(v && v.votes) })), nota: r.nota == null ? null : num(r.nota), note: str(r.note, 120), sample: !!r.sample, updatedAt: str(r.updatedAt, 40) || null };
+      const x = { status: STAT.includes(r.status) ? r.status : 'pending', ours: num(r.ours), rivals: (Array.isArray(r.rivals) ? r.rivals : []).slice(0, 12).map((v) => ({ name: str(v && v.name), party: str(v && v.party, 12), votes: num(v && v.votes) })), nota: r.nota == null ? null : num(r.nota), rejected: r.rejected == null ? null : num(r.rejected), note: str(r.note, 120), sample: !!r.sample, updatedAt: str(r.updatedAt, 40) || null };
       if (r.cand && typeof r.cand === 'object') x.cand = { name: str(r.cand.name), party: ['TDP', 'JSP', 'BJP'].includes(r.cand.party) ? r.cand.party : 'TDP', seat: str(r.cand.seat) };
       out[s.id] = x;
     }
