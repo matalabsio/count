@@ -1,1 +1,65 @@
-{"v":1,"at":"2026-11-07T00:00:00.000Z","results":{}}
+{
+ "v": 1,
+ "at": "2026-11-07T05:12:56.000Z",
+ "results": {
+  "zptc-garugubilli": {
+   "status": "counting",
+   "ours": 93,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 52
+    }
+   ],
+   "nota": 3,
+   "note": "Postal",
+   "cand": {
+    "name": "Kada Venkatramanamma",
+    "party": "TDP",
+    "seat": "Garugubilli ZPTC"
+   }
+  },
+  "zptc-jiyyammavalasa": {
+   "status": "counting",
+   "ours": 141,
+   "rivals": [
+    {
+     "name": "",
+     "party": "",
+     "votes": 51
+    },
+    {
+     "name": "",
+     "party": "JSP",
+     "votes": 2
+    }
+   ],
+   "nota": null,
+   "note": "Postal",
+   "cand": {
+    "name": "TDP 1",
+    "party": "TDP",
+    "seat": "Jiyyammavalasa ZPTC"
+   }
+  },
+  "zptc-komarada": {
+   "status": "counting",
+   "ours": 110,
+   "rivals": [
+    {
+     "name": "",
+     "party": "YSRCP",
+     "votes": 59
+    }
+   ],
+   "nota": null,
+   "note": "Postal. Rejected votes 2",
+   "cand": {
+    "name": "",
+    "party": "TDP",
+    "seat": "Komarada ZPTC"
+   }
+  }
+ }
+}
