@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.vercel/
+.env
+.env.*
+*.pem
+.agents/
+.codex/
+graphify-out/
+strix_runs/
